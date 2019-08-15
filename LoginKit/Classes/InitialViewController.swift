@@ -12,8 +12,6 @@ protocol InitialViewControllerDelegate: class {
 
     func didSelectSignup(_ viewController: UIViewController)
     func didSelectLogin(_ viewController: UIViewController)
-    func didSelectFacebook(_ viewController: UIViewController)
-
 }
 
 class InitialViewController: UIViewController, BackgroundMovable {
@@ -122,17 +120,13 @@ class InitialViewController: UIViewController, BackgroundMovable {
         delegate?.didSelectLogin(self)
     }
 
-    @IBAction func didSelectFacebook(_ sender: AnyObject) {
-        delegate?.didSelectFacebook(self)
-    }
-
 }
 
 // MARK: - UINavigationController Delegate
 
 extension InitialViewController: UINavigationControllerDelegate {
 
-    func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationControllerOperation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+	func navigationController(_ navigationController: UINavigationController, animationControllerFor operation: UINavigationController.Operation, from fromVC: UIViewController, to toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         return CrossDissolveAnimation()
     }
 

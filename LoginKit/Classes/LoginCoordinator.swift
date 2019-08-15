@@ -172,10 +172,6 @@ open class LoginCoordinator {
     }
     fileprivate var _passwordViewController: PasswordViewController?
 
-    // MARK: Services
-
-    public lazy var facebookService = FacebookService()
-
     // MARK: - LoginCoordinator
 
     public init(rootViewController: UIViewController) {
@@ -223,10 +219,6 @@ open class LoginCoordinator {
         print("Implement this method in your subclass to handle signup.")
     }
 
-    open func enterWithFacebook(profile: FacebookProfile) {
-        print("Implement this method in your subclass to handle facebook.")
-    }
-
     open func recoverPassword(email: String) {
         print("Implement this method in your subclass to handle password recovery.")
     }
@@ -265,17 +257,6 @@ extension LoginCoordinator: InitialViewControllerDelegate {
 
     func didSelectSignup(_ viewController: UIViewController) {
         goToSignup()
-    }
-
-    func didSelectFacebook(_ viewController: UIViewController) {
-        facebookService.login(from: viewController) { (result) in
-            switch result {
-            case .success(let profile):
-                self.enterWithFacebook(profile: profile)
-            default:
-                break
-            }
-        }
     }
 
 }
