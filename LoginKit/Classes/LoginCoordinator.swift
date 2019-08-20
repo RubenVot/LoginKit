@@ -28,7 +28,8 @@ public protocol ConfigurationSource {
     var passwordPlaceholder: String { get }
     var repeatPasswordPlaceholder: String { get }
     var namePlaceholder: String { get }
-
+	var surnamePlaceholder: String { get }
+	
 	var shouldShowSignupButton: Bool { get }
 	var shouldShowLoginButton: Bool { get }
 	var shouldShowFacebookButton: Bool { get }
@@ -56,6 +57,7 @@ public struct DefaultConfiguration: ConfigurationSource {
 	public var passwordPlaceholder: String
 	public var repeatPasswordPlaceholder: String
 	public var namePlaceholder: String
+	public var surnamePlaceholder: String
 
 	public var shouldShowSignupButton: Bool
 	public var shouldShowLoginButton: Bool
@@ -76,7 +78,8 @@ public struct DefaultConfiguration: ConfigurationSource {
 		 emailPlaceholder: String = "Email",
 		 passwordPlaceholder: String = "Password",
 		 repeatPasswordPlaceholder: String = "Repeat Password",
-		 namePlaceholder: String = "Full Name",
+		 namePlaceholder: String = "Name",
+		 surnamePlaceholder: String = "Surname",
 		 shouldShowSignupButton: Bool = true,
 		 shouldShowLoginButton: Bool = true,
 		 shouldShowFacebookButton: Bool = true,
@@ -96,6 +99,7 @@ public struct DefaultConfiguration: ConfigurationSource {
 		self.passwordPlaceholder = passwordPlaceholder
 		self.repeatPasswordPlaceholder = repeatPasswordPlaceholder
 		self.namePlaceholder = namePlaceholder
+		self.surnamePlaceholder = surnamePlaceholder
 		self.shouldShowSignupButton = shouldShowSignupButton
 		self.shouldShowLoginButton = shouldShowLoginButton
 		self.shouldShowFacebookButton = shouldShowFacebookButton
@@ -215,7 +219,7 @@ open class LoginCoordinator {
         print("Implement this method in your subclass to handle login.")
     }
 
-    open func signup(name: String, email: String, password: String) {
+	open func signup(name: String, surname: String, email: String, password: String) {
         print("Implement this method in your subclass to handle signup.")
     }
 
@@ -279,8 +283,9 @@ extension LoginCoordinator: LoginViewControllerDelegate {
 
 extension LoginCoordinator: SignupViewControllerDelegate {
 
-    public func didSelectSignup(_ viewController: UIViewController, email: String, name: String, password: String) {
-        signup(name: name, email: email, password: password)
+	public func didSelectSignup(_ viewController: UIViewController, email: String, name: String, surname: String, password: String) {
+		signup(name: name, surname: surname, email: email, password: password)
+		self.navigationController.popToRootViewController(animated: false)
     }
 
     public func signupDidSelectBack(_ viewController: UIViewController) {

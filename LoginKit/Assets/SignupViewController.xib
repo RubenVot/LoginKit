@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -17,6 +18,7 @@
                 <outlet property="passwordTextField" destination="8TC-HX-laI" id="iPU-WI-C95"/>
                 <outlet property="repeatPasswordTextField" destination="irT-Y1-JZM" id="ilC-dQ-PQZ"/>
                 <outlet property="signupButton" destination="b6U-Bx-8gq" id="HBD-Vf-tcW"/>
+                <outlet property="surnameTextField" destination="8Np-sO-R97" id="vDh-7z-UEw"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outletCollection property="fields" destination="XRx-9N-yQb" collectionClass="NSMutableArray" id="y1J-ff-yFA"/>
                 <outletCollection property="fields" destination="gbE-TG-9bX" collectionClass="NSMutableArray" id="DHi-9c-Sb2"/>
@@ -38,8 +40,8 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </imageView>
-                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" translatesAutoresizingMaskIntoConstraints="NO" id="39F-P3-KSq">
-                    <rect key="frame" x="30" y="150" width="315" height="367"/>
+                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="39F-P3-KSq">
+                    <rect key="frame" x="30" y="150" width="315" height="282"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XRx-9N-yQb" customClass="SkyFloatingLabelTextField" customModule="ILLoginKit" customModuleProvider="target">
                             <rect key="frame" x="0.0" y="0.0" width="315" height="50"/>
@@ -94,7 +96,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gbE-TG-9bX" customClass="SkyFloatingLabelTextField" customModule="ILLoginKit" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="106" width="315" height="50"/>
+                            <rect key="frame" x="0.0" y="58" width="315" height="50"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="GqJ-Bx-Rs2"/>
@@ -145,8 +147,60 @@
                                 <outlet property="delegate" destination="-1" id="vJf-tn-WQo"/>
                             </connections>
                         </textField>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8Np-sO-R97" customClass="SkyFloatingLabelTextField" customModule="ILLoginKit" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="116" width="315" height="50"/>
+                            <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="50" id="2Ry-wS-Us2"/>
+                                <constraint firstAttribute="width" constant="286" id="HJJ-O0-yMZ"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="words" autocorrectionType="no" spellCheckingType="no" returnKeyType="next"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="string" keyPath="placeholder" value="FULL NAME"/>
+                                <userDefinedRuntimeAttribute type="string" keyPath="title" value="Name"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="selectedLineHeight">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="lineHeight">
+                                    <real key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="errorColor">
+                                    <color key="value" red="0.94509803920000002" green="0.76862745099999996" blue="0.058823529409999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="selectedLineColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="lineColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="0.69999999999999996" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="tag">
+                                    <integer key="value" value="1"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="placeholderColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                    <color key="value" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                    <color key="value" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <variation key="default">
+                                <mask key="constraints">
+                                    <exclude reference="HJJ-O0-yMZ"/>
+                                </mask>
+                            </variation>
+                            <connections>
+                                <outlet property="delegate" destination="-1" id="B0X-d7-XwJ"/>
+                            </connections>
+                        </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="8TC-HX-laI" customClass="SkyFloatingLabelTextField" customModule="ILLoginKit" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="211" width="315" height="50"/>
+                            <rect key="frame" x="0.0" y="174" width="315" height="50"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="IEP-g3-a6V"/>
@@ -198,7 +252,7 @@
                             </connections>
                         </textField>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="irT-Y1-JZM" customClass="SkyFloatingLabelTextField" customModule="ILLoginKit" customModuleProvider="target">
-                            <rect key="frame" x="0.0" y="317" width="315" height="50"/>
+                            <rect key="frame" x="0.0" y="232" width="315" height="50"/>
                             <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="286" id="3jJ-rM-9R3"/>
@@ -308,7 +362,7 @@
                 <constraint firstAttribute="trailing" secondItem="39F-P3-KSq" secondAttribute="trailing" constant="30" id="XKS-BG-5wa"/>
                 <constraint firstItem="ViE-3o-Ioh" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="-20" id="YRY-r7-TPJ"/>
                 <constraint firstAttribute="trailing" secondItem="b6U-Bx-8gq" secondAttribute="trailing" constant="40" id="csb-If-jcX"/>
-                <constraint firstItem="b6U-Bx-8gq" firstAttribute="top" secondItem="39F-P3-KSq" secondAttribute="bottom" constant="50" id="lgU-D8-iOK"/>
+                <constraint firstItem="b6U-Bx-8gq" firstAttribute="top" relation="greaterThanOrEqual" secondItem="39F-P3-KSq" secondAttribute="bottom" constant="50" id="lgU-D8-iOK"/>
                 <constraint firstItem="B4D-0V-Nui" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="30" id="qM2-9O-zK8"/>
                 <constraint firstItem="3Av-ui-X58" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="rzM-E2-9ew"/>
                 <constraint firstItem="39F-P3-KSq" firstAttribute="top" secondItem="B4D-0V-Nui" secondAttribute="bottom" constant="10" id="usB-xg-c3h"/>

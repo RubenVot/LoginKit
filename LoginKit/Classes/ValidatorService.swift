@@ -56,6 +56,38 @@ public struct FullNameRule: ValidationRule {
 
 }
 
+public struct SimpleNameRule: ValidationRule {
+	
+	public typealias InputType = String
+	
+	public var error: Error
+	
+	public init(error: Error) {
+		self.error = error
+	}
+	
+	public func validate(input: String?) -> Bool {
+		guard let input = input else {
+			return false
+		}
+		
+		let components = input.components(separatedBy: " ")
+		
+		guard components.count >= 1 else {
+			return false
+		}
+
+		for component in components {
+			if component.count <= 1 {
+				return false
+			}
+		}
+		
+		return true
+	}
+	
+}
+
 struct ValidationService {
 
     static var emailRules: ValidationRuleSet<String> {
@@ -66,13 +98,13 @@ struct ValidationService {
 
     static var passwordRules: ValidationRuleSet<String> {
         var passwordRules = ValidationRuleSet<String>()
-        passwordRules.add(rule: ValidationRuleLength(min: 8, error: ValidationError.passwordLength))
+        passwordRules.add(rule: ValidationRuleLength(min: 6, error: ValidationError.passwordLength))
         return passwordRules
     }
 
     static var nameRules: ValidationRuleSet<String> {
         var nameRules = ValidationRuleSet<String>()
-        nameRules.add(rule: FullNameRule(error: ValidationError.invalidName))
+        nameRules.add(rule: SimpleNameRule(error: ValidationError.invalidName))
         return nameRules
     }
 
